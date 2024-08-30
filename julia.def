@@ -1,0 +1,22 @@
+Bootstrap: docker
+From: julia:1.9
+
+%environment
+	# make a local depot (read/write access) in addition to
+	# the /root/.julia one inside the image where things are installed
+	export JULIA_DEPOT_PATH=./.julia:/root/.julia/
+
+%files
+	install.jl /opt/install.jl
+	test.jl /opt/test.jl
+
+%post
+	julia /opt/install.jl
+	julia /opt/test.jl
+
+%runscript
+	mkdir -p .julia/ # local depot
+	julia "$@"
+
+%labels
+	Author ara@akvaplan.niva.no
