@@ -1,6 +1,6 @@
-## 
+## Julia environment as singularity image file
 
-Running this image requires a local directory called `.julia/` in the working directory.    
+Running this image will create a directory called `.julia/` in the working directory.    
 
 ## Build
 
