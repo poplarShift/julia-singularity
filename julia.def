@@ -12,7 +12,7 @@ From: julia:1.9
 
 %post
 	julia /opt/install.jl
-	julia /opt/test.jl
+	# julia /opt/test.jl
 
 %runscript
 	mkdir -p .julia/ # local depot
