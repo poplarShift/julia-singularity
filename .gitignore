@@ -2,4 +2,3 @@ build.log
 *.sif
 *.ipynb
 .ipynb_checkpoints/
-.julia/
