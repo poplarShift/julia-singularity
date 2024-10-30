@@ -91,7 +91,7 @@ for i in 1:n
 end
 
 ###save the start parameter values
-CSV.write(string("Output/test/",lake,run,"_startparam.csv"), DataFrame(taxa=taxa, ρ0=ρ0, i0=i0, c0=c0, a0=a0))
+CSV.write(string("Output/test/",lake,"_",run,"_startparam.csv"), DataFrame(taxa=taxa, ρ0=ρ0, i0=i0, c0=c0, a0=a0))
 
 print("Start models\n")
 ###Logistic model
@@ -312,7 +312,7 @@ df.mean = sum(eachcol(df[!,2:(n+1)]))./size(df[!,2:(n+1)])[2] #./size(tsteps)[1]
 df.lake.=lake
 df=sort(df, :mean)
 
-CSV.write(string("Output/test/",lake,run,"_", "modelerror.csv"), df)
+CSV.write(string("Output/test/",lake,"_",run,"_", "modelerror.csv"), df)
     
 
 #plot bestmod
@@ -351,5 +351,5 @@ CSV.write(string("Output/test/",lake, run, "_", "r.csv"), df)
 #Parameters - interactions
 
     
-CSV.write(string("Output/test/",lake,run,"_", "c_CompTrait.csv"), Tables.table(hcat(Array(taxa[1:n]), result_c.u[n+1: 2n])))
-CSV.write(string("Output/test/",lake,run,"_", "c_CompRate.csv"), Tables.table(hcat(Array(taxa[1:n]), result_c.u[2n+1: 3n])))
+CSV.write(string("Output/test/",lake,"_",run,"_", "c_CompTrait.csv"), Tables.table(hcat(Array(taxa[1:n]), result_c.u[n+1: 2n])))
+CSV.write(string("Output/test/",lake,"_",run,"_", "c_CompRate.csv"), Tables.table(hcat(Array(taxa[1:n]), result_c.u[2n+1: 3n])))
