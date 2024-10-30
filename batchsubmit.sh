@@ -4,7 +4,7 @@
 #SBATCH --account=nn9849
 #SBATCH --time=1-0:0:0
 #SBATCH --ntasks=1 --cpus-per-task=2 --mem-per-cpu=8GB
-#SBATCH --jobarray=1-10
+#SBATCH --array=1-10
 
 set -o errexit # exit on errors
 set -o nounset # treat unset variables as errors
