@@ -326,7 +326,7 @@ df[1,1] == "pred_bbobfgs_log" || df[1,1]== "pred_bbo_log" ? pred_log :
 df[1,1] == "pred_bbobfgs_logt" || df[1,1]== "pred_bbo_logt" ? pred_logt : 
 df[1,1] == "pred_bbobfgs_c" || df[1,1]== "pred_bbo_c" ? pred_c : "help"
 
-CSV.write(string("Output/test/",lake, run,"_", Predplotname,".csv"), stack(DataFrame(hcat(taxa[1:n], Pred), ["taxa"; string.(gdf[1].MedCalAge)]), 2:size(data_matrix)[2]+1))
+CSV.write(string("Output/test/",lake, "_", run,"_", Predplotname,".csv"), stack(DataFrame(hcat(taxa[1:n], Pred), ["taxa"; string.(gdf[1].MedCalAge)]), 2:size(data_matrix)[2]+1))
 
 ###Error plot for validation
 
@@ -335,7 +335,7 @@ scatter!(plt, tsteps, vec(sum((Data-pred_log).^2, dims=1)), label = pred_log_nam
 scatter!(plt, tsteps.+0.1, vec(sum((Data-pred_logt).^2, dims=1)), label = pred_logt_name, markercolor=2)
 scatter!(plt, tsteps.+0.2, vec(sum((Data-pred_c).^2, dims=1)), label = pred_c_name,markercolor=3)  
 
-savefig(plt, string("Output/test/",lake, run, "_", "_SSErrorFig.png"))
+savefig(plt, string("Output/test/",lake, "_", run, "_", "_SSErrorFig.png"))
 
 ###Parameters - Growth
 
@@ -346,7 +346,7 @@ df=unstack(df, :g, :s)
 df.lake.=lake
 df[!, "taxa"] .=  taxa[1:n]
 
-CSV.write(string("Output/test/",lake, run, "_", "r.csv"), df)
+CSV.write(string("Output/test/",lake, "_", run, "_", "r.csv"), df)
 
 #Parameters - interactions
 
