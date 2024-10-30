@@ -19,4 +19,4 @@ set -o nounset # treat unset variables as errors
 
 lake=$1 # name of lake passed as first argument
 
-./julia.sif demo.jl $lake $SLURM_ARRAY_TASK_ID
+./julia.sif test.jl $lake $(uuidgen)

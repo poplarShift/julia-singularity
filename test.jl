@@ -12,9 +12,8 @@ print("... all imports done.\n")
 ###MANUAL SETUP FOR EACH LAKE-RUN, COULDNT FIGURE HOW TO LOOP THROUGH LAKES OR RUNS (EACH RUN STARTS WITH NEW INITIAL PARAM VALUES)
 ####Working lake by lake, 
 
-lake = "Horntjernet"
-run= "_02"
-
+lake = ARGS[1] # e.g. "Horntjernet". Should also permit special characters
+run = ARGS[2] # can be running number, but ideally unique identifier (e.g. UUID4)
 
 #Import data and reshape
 
